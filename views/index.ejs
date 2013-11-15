@@ -20,22 +20,34 @@
         </ul>
         <h3 class="text-muted">弹幕墙</h3>
       </div>
-      <form class="form-horizontal" role="form" action="/" method="post">
+      <form class="form-horizontal" role="form" method="post">
         &nbsp;
         <legend>发送弹幕</legend>
         <p>这里是弹幕发送页面，输入想发送的句子并选择好颜色，点击发送即可。</p>
         <p>有问题请联系brickgao#gmail.com</p>
+        <% if (success) { %>
+          <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= success %>
+          </div>
+        <% } %>
+        <% if (error) { %>
+          <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= error %>
+          </div>
+        <% } %>
         &nbsp;
         <div class="form-group">
           <label for="sentence" class="col-sm-2 control-label">说点神马</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="sentence" placeholder="说点神马">
+            <input type="text" class="form-control" id="sentence" name="sentence" placeholder="说点神马">
           </div>
         </div>
         <div class="form-group">
           <label for="color" class="col-sm-2 control-label">颜色</label>
           <div class="col-sm-10">
-            <select id="color" class="form-control">
+            <select id="color" name="color" class="form-control">
               <option value="">红</option>
               <option value="">橙</option>
               <option value="">黄</option>
@@ -49,7 +61,7 @@
         <div class="form-group">
           <label for="size" class="col-sm-2 control-label">大小</label>
           <div class="col-sm-10">
-            <select id="size" class="form-control">
+            <select id="size" name="size" class="form-control">
               <option value="">小</option>
               <option value="">普通</option>
               <option value="">大</option>
